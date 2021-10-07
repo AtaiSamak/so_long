@@ -17,7 +17,24 @@ typedef struct  s_map
     int     j;
     int     posX;
     int     posY;
+
+    void    *player;
+    void    *exit;
+    void    *coll;
+    void    *wall;
+    void    *bg;
+    void    *pl_front;
+    void    *pl_up;
+    void    *pl_left;
+    void    *pl_right;
+
+    void    *mlx;
+    void    *win;
+    int     win_width;
+    int     win_height;
+    int     blockSize;
 }               t_map;
+
 
 void    setWidth(char *temp_map, t_map *map);
 void    setHeight(char *temp_map, t_map *map);
