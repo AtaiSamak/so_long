@@ -21,6 +21,8 @@ void    initItems(t_map *map)
     map->pl_up = mlx_xpm_file_to_image(map->mlx, "img/pl_up.xpm", &map->blockSize, &map->blockSize);
     map->pl_left = mlx_xpm_file_to_image(map->mlx, "img/pl_left.xpm", &map->blockSize, &map->blockSize);
     map->pl_right = mlx_xpm_file_to_image(map->mlx, "img/pl_right.xpm", &map->blockSize, &map->blockSize);
+    map->exitBlock = 0;
+    map->moves = 0;
 }
 
 void    putItem(t_map *map, int y, int x, char type)
@@ -49,7 +51,6 @@ void    putItem(t_map *map, int y, int x, char type)
 void    setItems(t_map *map)
 {
     map->i = 0;
-
     while(map->i < map->height)
     {
         map->j = 0;
@@ -69,4 +70,5 @@ void    setItems(t_map *map)
         }
         map->i++;
     }
+    mlx_string_put(map->mlx, map->win, 25, 25, 255255255, "0");
 }

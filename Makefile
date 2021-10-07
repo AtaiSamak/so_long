@@ -15,6 +15,7 @@ SRCS = 	main.c \
 		mainFunctions.c \
 		displayMap.c \
 		moves.c \
+		ft_itoa.c \
 
 
 OBJS = $(SRCS:.c=.o)

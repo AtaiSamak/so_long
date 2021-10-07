@@ -44,6 +44,5 @@ int main(int argc, char *argv[])
 	{
 		printf("Please write correct!\n");
 	}
-	while(1);
 	return 0;
 }

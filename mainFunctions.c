@@ -24,7 +24,7 @@ void     findPlayerPos(t_map *map)
     return ;
 }
 
-void    quitGame(t_map *map)
+int    quitGame(t_map *map)
 {
     mlx_destroy_window(map->mlx, map->win);
     freeMapStruct(map);
@@ -36,12 +36,14 @@ int    playerActs(int keycode, t_map *map)
     printf("key = %d\n", keycode);
     if(keycode == 13)
         moveUp(map);
-    if(keycode == 0)
+    else if(keycode == 0)
         moveLeft(map);
-    if(keycode == 1)
+    else if(keycode == 1)
         moveDown(map);
-    if(keycode == 2)
+    else if(keycode == 2)
         moveRight(map);
+    else if(keycode == 53)
+        quitGame(map);
     displayConsole(map);
     return(1);
 }
@@ -68,6 +70,7 @@ int     workMap(t_map *map)
     initItems(map);
     setItems(map);
     mlx_key_hook(map->win, playerActs, map);
+    mlx_hook(map->win, 17, 0, quitGame, map);
     mlx_loop(map->mlx);
     displayConsole(map);
 	freeMapStruct(map);
