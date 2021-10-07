@@ -13,6 +13,8 @@ SRCS = 	main.c \
 		checkers.c \
 		miniFunctions.c \
 		mainFunctions.c \
+		displayMap.c \
+		moves.c \
 
 
 OBJS = $(SRCS:.c=.o)

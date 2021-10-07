@@ -95,5 +95,6 @@ int     checkPresItems(t_map *map)
     }
     if(pos != 1 || exit == 0 || coll == 0)
         return(-1);
+    map->coins = coll;
     return(1);
 }

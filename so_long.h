@@ -17,6 +17,7 @@ typedef struct  s_map
     int     j;
     int     posX;
     int     posY;
+    int     coins;
 
     void    *player;
     void    *exit;
@@ -27,6 +28,7 @@ typedef struct  s_map
     void    *pl_up;
     void    *pl_left;
     void    *pl_right;
+    // int     move;
 
     void    *mlx;
     void    *win;
@@ -47,5 +49,14 @@ int     workMap(t_map *map);
 int     checkPresItems(t_map *map);
 int     checkMapWalls(t_map *map);
 int     checkMapItems(t_map *map);
+void    setItems(t_map *map);
+void    putItem(t_map *map, int y, int x, char type);
+void    initItems(t_map *map);
+int     openWindow(t_map *map);
+void    moveUp(t_map *map);
+void    quitGame(t_map *map);
+void    moveLeft(t_map *map);
+void    moveDown(t_map *map);
+void    moveRight(t_map *map);
 
 #endif
