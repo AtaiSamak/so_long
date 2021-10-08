@@ -1,48 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bahsoka <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 22:48:56 by bahsoka           #+#    #+#             */
+/*   Updated: 2021/10/08 22:48:58 by bahsoka          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int		read_map(char *fileName, t_map *map)
+int	read_map(char *fileName, t_map *map)
 {
-	int fd;
-	int reader;
+	int		fd;
+	int		reader;
 	char	temp_map[BUFFER_SIZE];
 
 	fd = open(fileName, O_RDONLY);
-	if(fd == -1)
-		return(-1);
+	if (fd == -1)
+		return (-1);
 	reader = read(fd, temp_map, BUFFER_SIZE);
-	if(reader == -1)
-		return(-1);
+	if (reader == -1)
+		return (-1);
 	temp_map[reader] = '\0';
 	setWidth(temp_map, map);
 	setHeight(temp_map, map);
-	if(checkMapSizes(temp_map, map) == -1)
+	if (checkMapSizes(temp_map, map) == -1)
 	{
 		printf("Error mapSize\n");
-		return(-1);
+		return (-1);
 	}
-	if(allocateMem(map) == 0)
-		return(-1);
+	if (allocateMem(map) == 0)
+		return (-1);
 	writeMapToArr(temp_map, map);
-	if(workMap(map) == -1)
-		return(-1);
-	return(1);
+	if (workMap(map) == -1)
+		return (-1);
+	return (1);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_map	map;
 
-	if(argc == 2)
+	if (argc == 2)
 	{
-		if(read_map(argv[1], &map) == -1)
+		if (read_map(argv[1], &map) == -1)
 		{
 			printf("Error\n");
-			return(0);
+			return (0);
 		}
 	}
 	else
 	{
 		printf("Please write correct!\n");
 	}
-	return 0;
+	return (0);
 }
