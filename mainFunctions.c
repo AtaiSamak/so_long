@@ -44,6 +44,8 @@ int    playerActs(int keycode, t_map *map)
         moveRight(map);
     else if(keycode == 53)
         quitGame(map);
+    if(map->enemyExist == 1)
+        enemyActs(map);
     displayConsole(map);
     return(1);
 }
@@ -66,6 +68,10 @@ int     workMap(t_map *map)
         return(-1);
     }
     findPlayerPos(map);
+    if(moreOneEnemy(map) == 1)
+        return(-1);
+    if(enemyExist(map) == 1)
+        map->enemyExist = 1;
     openWindow(map);
     initItems(map);
     setItems(map);

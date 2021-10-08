@@ -16,6 +16,7 @@ SRCS = 	main.c \
 		displayMap.c \
 		moves.c \
 		ft_itoa.c \
+		enemy.c \
 
 
 OBJS = $(SRCS:.c=.o)

@@ -29,6 +29,8 @@ void    changePlayerPosY(t_map *map, int newPos)
     if(map->map[newPos][map->posX] == 'E')
         map->exitBlock = 1;
     map->posY = newPos;
+    if(map->map[map->posY][map->posX] == 'V')
+        quitGame(map);
     map->map[map->posY][map->posX] = 'P';
     changeCounter(map);
 }
@@ -46,6 +48,8 @@ void    changePlayerPosX(t_map *map, int newPos)
     if(map->map[map->posY][newPos] == 'E')
         map->exitBlock = 1;
     map->posX = newPos;
+    if(map->map[map->posY][map->posX] == 'V')
+        quitGame(map);
     map->map[map->posY][map->posX] = 'P';
     changeCounter(map);
 }

@@ -31,6 +31,11 @@ typedef struct  s_map
     void    *pl_right;
     int     moves;
 
+    void    *enemy;
+    int     enemyExist;
+    int     ePosY;
+    int     ePosX;
+
     void    *mlx;
     void    *win;
     int     win_width;
@@ -60,5 +65,12 @@ void    moveLeft(t_map *map);
 void    moveDown(t_map *map);
 void    moveRight(t_map *map);
 char	*ft_itoa(int n);
+char     whereMoveEnemy(t_map *map);
+void    moveEnemy(t_map *map, int y, int x);
+void    enemyActs(t_map *map);
+int     enemyExist(t_map *map);
+int     moreOneEnemy(t_map *map);
+
+
 
 #endif

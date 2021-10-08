@@ -21,6 +21,7 @@ void    initItems(t_map *map)
     map->pl_up = mlx_xpm_file_to_image(map->mlx, "img/pl_up.xpm", &map->blockSize, &map->blockSize);
     map->pl_left = mlx_xpm_file_to_image(map->mlx, "img/pl_left.xpm", &map->blockSize, &map->blockSize);
     map->pl_right = mlx_xpm_file_to_image(map->mlx, "img/pl_right.xpm", &map->blockSize, &map->blockSize);
+    map->enemy = mlx_xpm_file_to_image(map->mlx, "img/enemy.xpm", &map->blockSize, &map->blockSize);
     map->exitBlock = 0;
     map->moves = 0;
 }
@@ -46,6 +47,11 @@ void    putItem(t_map *map, int y, int x, char type)
         mlx_put_image_to_window(map->mlx, map->win, map->bg, x, y);
         mlx_put_image_to_window(map->mlx, map->win, map->pl_front, x, y);
     }
+    else if (type == 'V')
+    {
+        mlx_put_image_to_window(map->mlx, map->win, map->bg, x, y);
+        mlx_put_image_to_window(map->mlx, map->win, map->enemy, x, y);
+    }
 }
 
 void    setItems(t_map *map)
@@ -66,6 +72,8 @@ void    setItems(t_map *map)
                 putItem(map, map->i * map->blockSize, map->j * map->blockSize, 'E');
             else if(map->map[map->i][map->j] == 'P')
                 putItem(map, map->i * map->blockSize, map->j * map->blockSize, 'P');
+            else if(map->map[map->i][map->j] == 'V')
+                putItem(map, map->i * map->blockSize, map->j * map->blockSize, 'V');
             map->j++;
         }
         map->i++;

@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	{
 		if(read_map(argv[1], &map) == -1)
 		{
-			printf("Error read file");
+			printf("Error\n");
 			return(0);
 		}
 	}
