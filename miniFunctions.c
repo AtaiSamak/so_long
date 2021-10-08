@@ -68,4 +68,5 @@ void	changePlayerPosY(t_map *map, int newPos)
 		quitGame(map);
 	map->map[map->posY][map->posX] = 'P';
 	changeCounter(map);
+	printf("Moves: %d\n", map->moves);
 }

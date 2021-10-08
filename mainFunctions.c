@@ -55,7 +55,8 @@ int	playerActs(int keycode, t_map *map)
 		moveRight(map);
 	else if (keycode == 53)
 		quitGame(map);
-	if (map->enemyExist == 1)
+	if (map->enemyExist == 1 && \
+	(keycode == 13 || keycode == 0 || keycode == 1 || keycode == 2))
 		enemyActs(map);
 	return (1);
 }

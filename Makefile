@@ -18,7 +18,6 @@ SRCS = 	main.c \
 		ft_itoa.c \
 		enemy.c \
 
-
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME) $(LIBRARY)
